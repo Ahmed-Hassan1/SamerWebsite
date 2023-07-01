@@ -37,7 +37,25 @@
             </div>
         </div>
 
-        <div>
+        {% for section in sections %}
+            <div>
+                <div class="about-me-section">
+                    <div class="bottom-chevron ">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+
+                    <div>
+                        <video class="about-me-video" tabindex="0" autoplay="" loop="" autobuffer="true" preload="auto" muted><source type="video/mp4" src="{{section.video.url}}"></video>
+                    </div>
+
+                    <div class="about-me-footer-text hidden">
+                        <span >{{section.description}}</span>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+        <!-- <div>
             <div class="about-me-section">
                 <div class="bottom-chevron ">
                     <i class="fas fa-chevron-down"></i>
@@ -84,7 +102,7 @@
                     <span >Creating teasers and propotional videos.</span>
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
         <div>
