@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samer</title>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+</head>
+
+<body style="background-color: rgb(0, 0, 0);">
+
+    <div class="about-me">
+        <div>
+            <div class="about-me-section">
+                <div class="about-me-container">
+                    <div class="primary-lottie-anim">
+                        <lottie-player id="firstLottie"
+                            src="https://lottie.host/f2cc6cb0-00b5-4847-853e-a5b0b900a513/ZLrfdkZS8s.json"
+                            style="width:200px; height: 200px;" autoP></lottie-player>
+                    </div>
+    
+                    <div class="btn-holder">
+                        <a href="{% url 'work' %}">
+                            <div class="about-me-btn">view my work</div>
+                        </a>
+                        <i class="fas fa-chevron-down"></i>
+                        <div class="about-me-btn" id="contact-me-btn">contact me</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="about-me-section">
+                <div class="bottom-chevron ">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+
+                <div>
+                    <video class="about-me-video" tabindex="0" autoplay="" loop="" autobuffer="true" preload="auto" muted><source type="video/mp4" src="22.mp4"></video>
+                </div>
+
+                <div class="about-me-footer-text hidden">
+                    <span >Converting videos to AI generated animation.</span>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="about-me-section">
+                <div class="bottom-chevron ">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+
+                <div>
+                    <video class="about-me-video" tabindex="0" autoplay="" loop="" autobuffer="true" preload="auto" muted><source type="video/mp4" src="3.m4v"></video>
+                </div>
+
+                <div class="about-me-footer-text hidden">
+                    <span >Creating teasers and propotional videos.</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div>
+            <div class="about-me-section">
+                <div class="bottom-chevron ">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+
+                <div>
+                    <video class="about-me-video" tabindex="0" autoplay="" loop="" autobuffer="true" preload="auto" muted><source type="video/mp4" src="1.m4v"></video>
+                </div>
+
+                <div class="about-me-footer-text hidden">
+                    <span >Creating teasers and propotional videos.</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div>
+            <div class="about-me-section">
+                <div class="contact-me-holder">
+                    <form action="">
+                        <h1>Contact Me</h1>
+                        
+                        <div>
+                            <input type="email" placeholder="Email" class="email">
+                        </div>
+
+                        <div>
+                            <textarea name="message" placeholder="Your message" class="message"></textarea>
+                        </div>
+
+                        <button type="submit" class="submit">Send</button>
+                    </form>
+                </div>
+                <div class="return-to-top" id="to-top-arrow">
+                    <i class="fas fa-chevron-up"></i>
+                    <p>Return to top</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <script>
+        LottieInteractivity.create({
+            player: '#firstLottie',
+            mode: 'chain',
+            actions: [
+                {
+                    state: 'autoplay',
+                    transition: 'onComplete',
+                    path: 'https://lottie.host/f2cc6cb0-00b5-4847-853e-a5b0b900a513/ZLrfdkZS8s.json'
+                },
+                {
+                    state: 'autoplay',
+                    transition: 'onComplete',
+                    path: 'https://lottie.host/a3a5c6d1-7c96-4e07-984a-17d0ffc2bada/SrbkkmDXxs.json',
+
+                },
+                {
+                    state: 'autoplay',
+                    transition: 'onComplete',
+                    path: 'https://assets10.lottiefiles.com/packages/lf20_cuf1Vq.json',
+                    reset: true
+                }
+            ]
+        });
+
+        const observer = new IntersectionObserver((enteries)=>{
+            enteries.forEach((entry)=>{
+                if(entry.isIntersecting)
+                {
+                    entry.target.classList.add('show');
+                }
+                else
+                {
+                    entry.target.classList.remove('show');
+                }
+            });
+        });
+        const hiddenElements=document.querySelectorAll('.hidden');
+
+        hiddenElements.forEach((el)=>observer.observe(el));
+
+
+        document.getElementById("to-top-arrow").addEventListener("click",()=>{
+            document.querySelector('.about-me').scrollTo({ top: 0, behavior: 'smooth' })
+        });
+
+        document.getElementById("contact-me-btn").addEventListener("click",()=>{
+            document.querySelector('.contact-me-holder').scrollIntoView();
+        });
+        
+        
+    </script>
+
+
+</body>
+
+</html>

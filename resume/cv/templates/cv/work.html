@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>Samer Portfolio</title>
+
+</head>
+
+<body style="background-color: rgb(0, 0, 0);">
+
+    <div class="my-work">
+        <a href="{% url 'home' %}">
+            <div class="my-work-btn">
+                <i class="fas fa-chevron-left" style="margin-right: 20px; margin-left: 5px;"></i>
+                <span>About Me</span>
+            </div>
+        </a>
+
+        <!-- <div id="tag-container">
+            <div class="tag" onclick="toggleTag(event)">Category 1</div>
+            <div class="tag" onclick="toggleTag(event)">Category 2</div>
+            <div class="tag" onclick="toggleTag(event)">Category 3</div>
+            <div class="tag" onclick="toggleTag(event)">Category 4</div>
+            <div class="tag" onclick="toggleTag(event)">Category 5</div>
+            <div class="tag" onclick="toggleTag(event)">Category 6</div>
+            <div class="tag" onclick="toggleTag(event)">Category 7</div>
+        </div> -->
+
+        <div class="project-holder" id="projects">
+            <button data-open-modal>
+                <div>
+                    <div class="project-card">
+                        <div class="project-card-text hidden">
+                            <h2>Sample Project 111</h2>
+                            <h3>Editor / Photographer</h3>
+                        </div>
+                        <div style="display: inline-block; height: 100%; width: 100%;">
+                            <img src="1.PNG" alt="" class="project-card-img">
+                        </div>
+
+                    </div>
+                </div>
+            </button>
+            <dialog data-modal>
+
+                <div>
+                    <video autoplay="" preload="none" controls style="height: 100%; width: 100%;">
+                        <source type="video/mp4" src="3.m4v">
+                    </video>
+                </div>
+
+
+                <button class="about-me-btn" data-close-modal>
+                    < Back</button>
+            </dialog>
+
+
+
+            <button data-open-modal2>
+                <div>
+                    <div class="project-card">
+                        <div class="project-card-text hidden">
+                            <h2>Sample Project 222</h2>
+                            <h3>Editor / Photographer</h3>
+                        </div>
+                        <div style="display: inline-block; height: 100%; width: 100%;">
+                            <img src="1.PNG" alt="" class="project-card-img">
+                        </div>
+
+                    </div>
+                </div>
+            </button>
+            <dialog data-modal2>
+
+                <div>
+                    <video autoplay="" preload="none" controls style="height: 100%; width: 100%;">
+                        <source type="video/mp4" src="1.m4v">
+                    </video>
+                </div>
+
+
+                <button class="about-me-btn" data-close-modal2>
+                    < Back</button>
+            </dialog>
+
+            
+            <button data-open-modal3>
+                <div>
+                    <div class="project-card">
+                        <div class="project-card-text hidden">
+                            <h2>Sample Project 333</h2>
+                            <h3>Editor / Photographer</h3>
+                        </div>
+                        <div style="display: inline-block; height: 100%; width: 100%;">
+                            <img src="1.PNG" alt="" class="project-card-img">
+                        </div>
+
+                    </div>
+                </div>
+            </button>
+            <dialog data-modal3>
+
+                <div>
+                    <video autoplay="" preload="none" controls style="height: 100%; width: 100%;">
+                        <source type="video/mp4" src="22.mp4">
+                    </video>
+                </div>
+
+
+                <button class="about-me-btn" data-close-modal3>
+                    < Back</button>
+            </dialog>
+
+
+        </div>
+    </div>
+
+
+
+    <script>
+        var tags = document.getElementsByClassName("tag");
+        function toggleTag(e) {
+            if (!e.target.classList.contains("tagToggled")) {
+                e.target.classList.add("tagToggled")
+
+                document.getElementById("projects").classList.remove("hide");
+            }
+            else if (e.target.classList.contains("tagToggled")) {
+                e.target.classList.remove("tagToggled");
+                document.getElementById("projects").classList.add("hide");
+            }
+
+
+        }
+
+        const observer = new IntersectionObserver((enteries) => {
+            enteries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+                else {
+                    entry.target.classList.remove('show');
+                }
+            });
+        });
+        const hiddenElements = document.querySelectorAll('.hidden');
+
+        hiddenElements.forEach((el) => observer.observe(el));
+
+        const open_button = document.querySelector("[data-open-modal]");
+        const close_button = document.querySelector("[data-close-modal]");
+        const modal = document.querySelector("[data-modal]");
+
+        open_button.addEventListener("click", () => {
+            modal.showModal();
+
+        });
+
+        close_button.addEventListener("click", () => {
+            modal.close();
+        })
+
+        const open_button2 = document.querySelector("[data-open-modal2]");
+        const close_button2 = document.querySelector("[data-close-modal2]");
+        const modal2 = document.querySelector("[data-modal2]");
+
+        open_button2.addEventListener("click", () => {
+            modal2.showModal();
+
+        });
+
+        close_button2.addEventListener("click", () => {
+            modal2.close();
+        })
+
+
+        const open_button3 = document.querySelector("[data-open-modal3]");
+        const close_button3 = document.querySelector("[data-close-modal3]");
+        const modal3 = document.querySelector("[data-modal3]");
+
+        open_button3.addEventListener("click", () => {
+            modal3.showModal();
+
+        });
+
+        close_button3.addEventListener("click", () => {
+            modal3.close();
+        })
+
+
+    </script>
+</body>
+
+</html>
