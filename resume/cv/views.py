@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from .models import HomeVideo
+from .models import HomeVideo,WorkVideo
 # Create your views here.
 
 class HomePage(TemplateView):
@@ -14,6 +14,10 @@ class WorkPage(TemplateView):
 def homePage(request):
 
     sections=HomeVideo.objects.all()
-    print(sections)
     context={"sections":sections}
     return render(request,"cv/index.html",context)
+
+def workPage(request):
+    videos=WorkVideo.objects.all()
+    context={"videos":videos}
+    return render(request,"cv/work.html",context)

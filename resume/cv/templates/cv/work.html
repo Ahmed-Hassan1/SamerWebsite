@@ -32,7 +32,7 @@
         </div> -->
 
         <div class="project-holder" id="projects">
-            <button data-open-modal>
+            <!-- <button data-open-modal>
                 <div>
                     <div class="project-card">
                         <div class="project-card-text hidden">
@@ -114,9 +114,43 @@
 
                 <button class="about-me-btn" data-close-modal3>
                     < Back</button>
+            </dialog> -->
+
+            {% for video in videos %}
+            <button>
+                <div id="{{video.id}}">
+                    <div class="project-card">
+                        <div class="project-card-text hidden">
+                            <h2>{{video.vide_title}}</h2>
+                            <h3>{{video.job_title}}</h3>
+                        </div>
+                        <div style="display: inline-block; height: 100%; width: 100%;">
+                            <img src="1.PNG" alt="" class="project-card-img">
+                        </div>
+                        
+                        <div class="hide" id="video-{{video.id}}">
+                            <video  autoplay="" preload="none" controls style="height: 100%; width: 100%;">
+                                <source type="video/mp4" src="{{video.video.url}}">
+                            </video>
+                        </div>
+                        
+                    </div>
+                </div>
+            </button>
+            {% endfor %}
+
+            <dialog data-modal>
+
+                <!-- <div>
+                    <video autoplay="" preload="none" controls style="height: 100%; width: 100%;">
+                        <source type="video/mp4" src="3.m4v">
+                    </video>
+                </div> -->
+
+
+                <button class="about-me-btn" data-close-modal id="close-modal">
+                    < Back</button>
             </dialog>
-
-
         </div>
     </div>
 
@@ -152,45 +186,42 @@
 
         hiddenElements.forEach((el) => observer.observe(el));
 
-        const open_button = document.querySelector("[data-open-modal]");
-        const close_button = document.querySelector("[data-close-modal]");
+        const projects=document.getElementById('projects');
         const modal = document.querySelector("[data-modal]");
+        const modal_clone=modal.cloneNode(true);
 
-        open_button.addEventListener("click", () => {
+        projects.addEventListener('click',(event)=>{
+            if(event.target.id==="close-modal")
+            {
+                modal.close();
+                modal.innerHTML=modal_clone.innerHTML;
+                return;
+            }
+
+            console.log(event.target.parentNode.parentNode.id);
+            //modal.innerHTML=event.target.parentNode.children[2];//+"<button class='about-me-btn' data-close-modal>< Back</button>";
+            //modal.showModal();
+            //const x =event.target.parentNode.children[2].children[0];
+            //x.removeProperty('display');
+            //console.log(typeof(x));
+            const vid=document.getElementById("video-"+event.target.parentNode.parentNode.id);
+            const vid_clone=vid.cloneNode(true);
+            vid_clone.classList.remove('hide');
+            //console.log(vid_clone);
+
+            //modal.appendChild(vid_clone);
+            modal.innerHTML=vid_clone.innerHTML+modal.innerHTML;
             modal.showModal();
-
+            
+            //modal.removeChild(vid_clone);
         });
+        const close_button = document.querySelector("[data-close-modal]");
+
 
         close_button.addEventListener("click", () => {
             modal.close();
         })
 
-        const open_button2 = document.querySelector("[data-open-modal2]");
-        const close_button2 = document.querySelector("[data-close-modal2]");
-        const modal2 = document.querySelector("[data-modal2]");
-
-        open_button2.addEventListener("click", () => {
-            modal2.showModal();
-
-        });
-
-        close_button2.addEventListener("click", () => {
-            modal2.close();
-        })
-
-
-        const open_button3 = document.querySelector("[data-open-modal3]");
-        const close_button3 = document.querySelector("[data-close-modal3]");
-        const modal3 = document.querySelector("[data-modal3]");
-
-        open_button3.addEventListener("click", () => {
-            modal3.showModal();
-
-        });
-
-        close_button3.addEventListener("click", () => {
-            modal3.close();
-        })
 
 
     </script>
