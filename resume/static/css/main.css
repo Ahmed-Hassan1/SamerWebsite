@@ -299,8 +299,7 @@ align-content: center;
 
 .about-me-video {
   position: absolute;
-  left: 0;
-  bottom: 50%;
+  /* bottom: 50%; */
   /* transform: translateX(-50%); */
   /* height: 80vmax; */
   width: 100%;
@@ -412,6 +411,15 @@ transform: translateX(0);
   .btn-holder {
     gap: 10%;
   }
+
+  
+}
+
+@media screen and (max-width: 999px) {
+  .about-me-video{
+    left: 0;
+    bottom: 50%;
+  }
 }
 
 @media screen and (min-width: 1000px) {
@@ -421,12 +429,19 @@ transform: translateX(0);
   .about-me-footer-text span {
     width: 80%;
   }
+
+  .about-me-video{
+    left: 0;
+    top:0;
+  }
 }
 
 @media screen and (min-width: 1300px) {
   .about-me-footer-text span {
     width: 60%;
   }
+
+  
 }
 
 @media screen and (max-height: 850px) {
