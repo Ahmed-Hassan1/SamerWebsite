@@ -54,10 +54,28 @@
                 </div>
             </div>
         {% endfor %}
+
+        <div>
+            <div class="about-me-section">
+                {% for hdr in header%}
+                <h1 style="color: white; text-align: center; margin-bottom: 1rem;">{{hdr.header}}</h1>
+                {% endfor %}
+
+                {% for pg in pgs %}
+                <div style="width: 90%; color: white; text-align: center;  margin-bottom: 1rem;">
+                    {{pg.description}}
+                </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+
+
+
         <div>
             <div class="about-me-section">
                 <div class="contact-me-holder">
-                    <form action="">
+                    <form action="" style="margin-bottom: 6rem;">
                         <h1>Contact Me</h1>
                         
                         <div>
@@ -70,7 +88,51 @@
 
                         <button type="submit" class="submit">Send</button>
                     </form>
+
+                    <div style="margin-bottom: 12rem;">
+                        {% for cont in contact %}
+                        <div style="color:white; margin-bottom: 2rem;">
+                            {{cont.address}}
+                        </div>
+
+                        <div style="color:white;">
+                            {{cont.phone}}
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div style="font-size: 3rem;">
+                        {% for soc in social%}
+                            {% if soc.facebook != None %}
+                            <a href="{{soc.facebook}}">
+                                <i class="fab fa-facebook-square" style="margin-right: 1rem;"></i>
+                            </a>
+                            {% endif %}
+
+                            {% if soc.twitter != None %}
+                            <a href="">
+                                <i class="fab fa-twitter-square" style="margin-right: 1rem;"></i>
+                            </a>
+                            {% endif %}
+
+                            {% if soc.instagram != None %}
+                            <a href="{{soc.instagram}}">
+                                <i class="fab fa-instagram-square" style="margin-right: 1rem;"></i>
+                            </a>
+                            {% endif %}
+
+                            {% if soc.youtube != None %}
+                            <a href="{{soc.youtube}}">
+                                <i class="fab fa-youtube-square" style="margin-right: 1rem;"></i>
+                            </a>
+                            {% endif %}
+                        {% endfor %}
+
+                    </div>
                 </div>
+
+                
+
                 <div class="return-to-top" id="to-top-arrow">
                     <i class="fas fa-chevron-up"></i>
                     <p>Return to top</p>
