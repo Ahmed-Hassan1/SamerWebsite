@@ -3,7 +3,7 @@
   --tag-transition-time: 0.25s;
   --limeGreen: #00c166;
   --background: #000000;
-  --main-text-color: #e2e2e2;
+  --main-text-color: #000000;
   --main-tag-color: #56799c;
   --tag-text-color: #1d2a36;
   --search-input-color: #b1cae4;
@@ -315,7 +315,7 @@ align-content: center;
   height: 20vh;
   bottom: 0;
   z-index: 10;
-  color: var(--main-text-color);
+  color: white;
   background: var(--background);
   border-top: 3vh solid white;
   font-size: 120%;

@@ -14,7 +14,7 @@
 
 </head>
 
-<body style="background-color: rgb(0, 0, 0);">
+<body style="background-color: rgb(249, 249, 249);">
 
     <div class="about-me">
         <div>
@@ -30,7 +30,7 @@
                         <a href="{% url 'work' %}">
                             <div class="about-me-btn">view my work</div>
                         </a>
-                        <i class="fas fa-chevron-down"></i>
+                        <i class="fas fa-chevron-down" style="color: black;"></i>
                         <div class="about-me-btn" id="contact-me-btn">contact me</div>
                     </div>
                 </div>
@@ -58,11 +58,11 @@
         <div>
             <div class="about-me-section">
                 {% for hdr in header%}
-                <h1 style="color: white; text-align: center; margin-bottom: 1rem;">{{hdr.header}}</h1>
+                <h1 style="text-align: center; margin-bottom: 1rem;">{{hdr.header}}</h1>
                 {% endfor %}
 
                 {% for pg in pgs %}
-                <div style="width: 90%; color: white; text-align: center;  margin-bottom: 1rem;">
+                <div style="width: 90%; text-align: center;  margin-bottom: 1rem;">
                     {{pg.description}}
                 </div>
                 {% endfor %}
@@ -76,7 +76,7 @@
             <div class="about-me-section">
                 <div class="contact-me-holder">
                     <form action="" style="margin-bottom: 6rem;">
-                        <h1>Contact Me</h1>
+                        <h1 style="color: white;">Contact Me</h1>
                         
                         <div>
                             <input type="email" placeholder="Email" class="email">
@@ -86,7 +86,7 @@
                             <textarea name="message" placeholder="Your message" class="message"></textarea>
                         </div>
 
-                        <button type="submit" class="submit">Send</button>
+                        <button type="submit" class="submit" style="color: white;">Send</button>
                     </form>
 
                     <div style="margin-bottom: 12rem;">
@@ -101,7 +101,7 @@
                         {% endfor %}
                     </div>
 
-                    <div style="font-size: 3rem;">
+                    <div style="font-size: 3rem; color: white;">
                         {% for soc in social%}
                             {% if soc.facebook != None %}
                             <a href="{{soc.facebook}}">
@@ -134,7 +134,7 @@
                 
 
                 <div class="return-to-top" id="to-top-arrow">
-                    <i class="fas fa-chevron-up"></i>
+                    <i class="fas fa-chevron-up" style="color: white;"></i>
                     <p>Return to top</p>
                 </div>
             </div>
